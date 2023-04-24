@@ -123,7 +123,6 @@ body {
 }
 /* nav Bar */
 .navigation{
-  position: fixed;
   width: 100%;
   max-width: 120rem;
   background-color:var(--primary-color);
@@ -245,8 +244,9 @@ body {
   }
 /*section*/
   .section .conteudo{
+    padding-top: calc(4.1rem + var(--nav-height));
     padding-bottom: 18rem;
-    
+   
   }
 /*title*/
   .conteudo .texto .titulo{
@@ -277,6 +277,20 @@ body {
     width: 335px;
     height: 574.72px;
   }
+
+  /**/
+  .section .conteudo.-cards{
+    background-image: url(./img/Group\ 18942\ \(1\).png);
+    background-position: bottom right;
+    background-size: contain;
+  }
+  .section .conteudo.-cards .texto {
+    width: 95%;
+  }
+  .section .conteudo.-cards .texto .button {
+    padding-top: 3rem;
+    padding-bottom: 8rem;
+}
 /*footer*/
   .footer .container-footer {
     width: 100%;
@@ -402,6 +416,7 @@ body {
     align-items: center;
     justify-content:center;
     padding: 96px 0px;
+    padding-top: calc(4.1rem + var(--nav-height));
   }
   .texto{
 
@@ -489,8 +504,9 @@ body {
     background: #1B1C20;
     border-radius: 25.6px;
     background-image: url(./img/Group\ 18942.png);
-    background-position: center right;
+    background-position: bottom right;
     background-repeat: no-repeat;
+    background-size: contain;
   }
   .conteudo.-cards .texto{
     display: flex;
