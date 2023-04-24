@@ -108,17 +108,21 @@ body {
   font-smooth: always;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  box-sizing: border-box;
+}
+.main{
+  background-color:var(--primary-color);
 }
 .header{
   display: flex;
   flex-flow: column nowrap;
   align-items: center;
   width: 100%;
-  height: 100vh;
+  height: 110vh;
   background-color:var(--primary-color);
 }
 /* nav Bar */
-.nav{
+.navigation{
   position: fixed;
   width: 100%;
   max-width: 120rem;
@@ -130,22 +134,23 @@ body {
   justify-content:space-around;
   align-items: flex-start;
 }
-.nav .button{
+.navigation .button{
   display: none;
   cursor: pointer;
 }
-.nav .svg{
+.navigation .svg{
   width: 2em;
   height: 2em;
   fill: white;
 }
-.nav .navigation{
+.navigation .nav{
   width: 80%;
   max-width: 120rem;
   display: flex;
   justify-content: space-between;
+  transition: all .5s ease-in-out;
 }
-.nav .navigation .buttons{
+.navigation .nav .buttons{
   display: flex;
   gap: 3.125rem;
 }
@@ -180,57 +185,110 @@ body {
   background: none;
   color: #FFFFFF;
 }
-.nav .ul{
+.navigation .ul{
   display: flex;
   gap: 2.125rem;
   flex-flow: row nowrap;
   justify-content:flex-end;
   align-items: center;
 }
-.nav .li{
+.navigation .li{
   margin: 0 0.5em;
 }
 @media screen and (max-width:480px){
-  .nav{
+  .navigation{
     justify-content:space-between;
   }
-  .nav .button{
+  .navigation .button{
     display: block;
   }
-  .nav .navigation{/*quando o botão não estiver ativo */
+  .navigation .nav{/*quando o botão não estiver ativo */
     width: 100%;
-   /* display: none;*/
-   overflow: hidden;
-   pointer-events: none;/*para não ter efeito no mouse*/
-   height: 0vh;
-   transition: all .5s ease-in-out;
-   display:flex;
-   flex-flow: column nowrap;
-   justify-content:center;
-   align-items: center;
+    overflow: hidden;
+    pointer-events: none;/*para não ter efeito no mouse*/
+    height: 0;
+    transition: all .5s ease-in-out;
+    display: flex;
+    flex-flow: column nowrap;
+    justify-content: center;
+    align-items: center;
   }
-  .nav .navigation.ativo{/*quando o botão estiver ativo */
+  .navigation .nav.ativo{/*quando o botão estiver ativo */
     /*para suavizar o efeito apenas retirei a altura e depois adicionei com um transition */
-    /*display: block;*/
-    height: 50vh;
+    display: flex;
+    height: 60vh;
     pointer-events: auto;
+    justify-content: space-around;
+    transition: all .5s ease-in-out;
   }
-  .nav .ul{
+  .navigation .nav .buttons {
+    display: flex;
+    gap: 3.125rem;
+    justify-content: center;
+}
+  .navigation .ul{
     flex-direction: column;
   }
-  .nav .li{
+  .navigation .li{
     margin: 1em 0;
   }
+  .header .container{
+    flex-flow: column nowrap;
+  }
+  .header .container .content {
+    width: auto;
+    padding:0;
+    
+  }
+  .header .container .content-img {
+    width: 100%;
+  }
+/*section*/
+  .section .conteudo{
+    padding-bottom: 18rem;
+    
+  }
+/*title*/
+  .conteudo .texto .titulo{
+    width: 335px;
+    height: 32px;
 
+    font-family: 'Satoshi';
+    font-style: normal;
+    font-weight: 500;
+    font-size: 24px;
+    line-height: 32px;
+    display: flex;
+    align-items: center;
+    text-align: center;
+    letter-spacing: -1.824px;
+  }
+/*frames*/
+  .frames{
+    gap: 1.25rem;
+  }
+
+/*grid*/
+  .conteudo .grid-container {
+    display: flex;
+    flex-flow: column nowrap;
+  }
+  .conteudo .grid-container .grid-item{
+    width: 335px;
+    height: 574.72px;
+  }
 /*footer*/
   .footer .container-footer {
+    width: 100%;
+    align-items: center; 
+    justify-content: center;
     gap: 2.125rem;
     flex-flow: column nowrap;
     background-color: #0B0C0D;
   }
   .footer .container-footer .medias{
-    display: flex;
-    flex-flow: column-reverse nowrap;
+    padding-top: 8rem;
+    flex-flow: column-reverse nowrap !important;
     gap: 2.125rem;
   }
   .footer .container-footer .medias .social-media{
@@ -252,7 +310,7 @@ body {
     text-align: center;
   }
 }
-/*fim nav Bar */
+/*fim navigation Bar */
   .container{
     display: flex;
     width: 100%;
@@ -315,7 +373,7 @@ body {
 /*section*/
   .section{
     width: 100%;
-    height: 962.3px;
+    padding: 96px 0px;
     display: flex;
     align-items:center;
     justify-content: center;
@@ -364,7 +422,9 @@ body {
   }
 /*frames*/
   .-scFrames{
-    max-height: 35.4787rem;
+  }
+  .conteudo.-scFrames{
+    
   }
   .frames{
     display: flex;
@@ -484,7 +544,7 @@ body {
     gap: 2.125rem;
   }
   .container-footer{
-    width: 95%;
+    width: 90%;
     max-width: 120rem;
     display: flex;
     flex-flow: row nowrap;
